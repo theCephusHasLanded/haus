@@ -1,3 +1,71 @@
+<h1>haus</h1>
+<p>future housing innovation tech presented by LKHN Research.</p>
+
+<h1>"Digital Café Booth" Rental App</h1>
+
+<p>This is a web application built with React that enables users to rent digital café booths using the Zelda (ZLDA) payment system. Users can make payments in four installments over an eight-week period, and on-time payments allow them to accumulate ZldaCoins.</p>
+
+<h2>Features</h2>
+
+<ul>
+  <li>User registration and login: Users can create an account and log in to access the rental functionality.</li>
+  <li>Booth selection: Users can view available café booths and choose the one they want to rent.</li>
+  <li>Payment system: Users can make payments in four installments over an eight-week period using the Zelda (ZLDA) payment system.</li>
+  <li>ZldaCoin accumulation: On-time payments allow users to accumulate ZldaCoins, which can be used for various rewards or future rentals.</li>
+  <li>Notifications: Users receive notifications regarding payment due dates, successful payments, and ZldaCoin accumulation.</li>
+</ul>
+
+<h2>Installation</h2>
+
+<p>To get started with the Digital Café Booth Rental App, follow the steps below:</p>
+
+<h3>Prerequisites</h3>
+
+<ul>
+  <li>Node.js: Make sure you have Node.js installed on your machine. You can download it from the official website: <a href="https://nodejs.org">https://nodejs.org</a>.</li>
+</ul>
+
+<h3>Clone the repository</h3>
+
+<ol>
+  <li>Open your terminal or command prompt.</li>
+  <li>Clone the repository using the following command:
+    <pre><code>git clone https://github.com/your-username/haus.git</code></pre>
+    <p>This will create a local copy of the project on your machine.</p>
+  </li>
+</ol>
+
+<h3>Navigate to the project directory</h3>
+
+<pre><code>cd digital-cafe-booth-rental-app</code></pre>
+
+<h3>Prerequisites</h3>
+
+<p>Once you are inside the project directory, install the project dependencies by running the following command:</p>
+
+<pre><code>npm install</code></pre>
+
+<p>This will download and install all the required packages and dependencies for the app.</p>
+
+<h3>Configuration</h3>
+
+<p>Before running the app, you need to configure the Zelda (ZLDA) payment system and API keys. Follow these steps:</p>
+
+<ol>
+  <li>Create a Zelda (ZLDA) payment system account at zelda.com.</li>
+  <li>Obtain your API keys from the Zelda (ZLDA) developer dashboard.</li>
+  <li>Create a .env file in the root directory of the project.</li>
+  <li>Add the following environment variables to the .env file:</li>
+</ol>
+
+<pre><code>REACT_APP_ZLDA_API_KEY=your-zlda-api-key
+REACT_APP_ZLDA_API_SECRET=your-zlda-api-secret</code></pre>
+
+<p>Replace <code>your-zlda-api-key</code> and <code>your-zlda-api-secret</code> with your actual API keys.</p>
+
+<p>That's it! You have successfully installed and configured the Digital Café Booth Rental App on your machine. Now you can proceed to the next section to learn how to use the app.</p>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
