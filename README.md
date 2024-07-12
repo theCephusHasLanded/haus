@@ -1,4 +1,3 @@
-  <title>HAUS - Rent a Room</title>
 </head>
 <body>
   <h1>HAUS</h1>
