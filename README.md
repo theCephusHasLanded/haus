@@ -4,6 +4,28 @@
   <p>Future housing innovation tech presented by LKHN Research.</p>
 
   <h1>"Rent a Room" App</h1>
+  ### App Icon
+![App Icon](public/家.JPEG)
+  # Color Palette
+
+### Primary Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#000000;border-radius:5px;margin-right:10px;"></span> Black (#000000)
+<span style="display:inline-block;width:20px;height:20px;background-color:#FFD700;border-radius:5px;margin-right:10px;"></span> Gold (#FFD700)
+<span style="display:inline-block;width:20px;height:20px;background-color:#FFFFFF;border-radius:5px;margin-right:10px;border:1px solid #000;"></span> White (#FFFFFF)
+
+### Complementary Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#333333;border-radius:5px;margin-right:10px;"></span> Dark Gray (#333333)
+<span style="display:inline-block;width:20px;height:20px;background-color:#FFF5CC;border-radius:5px;margin-right:10px;"></span> Light Gold (#FFF5CC)
+
+### Analogous Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#001F3F;border-radius:5px;margin-right:10px;"></span> Dark Blue (#001F3F)
+<span style="display:inline-block;width:20px;height:20px;background-color:#CCCCCC;border-radius:5px;margin-right:10px;"></span> Light Gray (#CCCCCC)
+<span style="display:inline-block;width:20px;height:20px;background-color:#C0C0C0;border-radius:5px;margin-right:10px;"></span> Silver (#C0C0C0)
+
+### Accent Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#008080;border-radius:5px;margin-right:10px;"></span> Teal (#008080)
+<span style="display:inline-block;width:20px;height:20px;background-color:#FF7F50;border-radius:5px;margin-right:10px;"></span> Coral (#FF7F50)
+
 
   <p>This is a web application built with React that enables users to rent rooms with easy weekly payments, similar to Airbnb. The application features full CRUD functionality with a robust back-end built using Golang, connected to an SQL database, and using JWT and Redis for user authentication and session tracking.</p>
 
