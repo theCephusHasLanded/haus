@@ -1,178 +1,102 @@
-</head>
-<body>
-  <h1>HAUS</h1>
-  <p>Future housing innovation tech presented by LKHN Research.</p>
+# HAUS
+
+## Overview
+HAUS is a revolutionary housing solution designed to address the diverse needs of individuals in New York City and beyond. With a focus on providing immediate shelter to those in desperate need, comfortable accommodations for travelers, and luxurious living experiences, HAUS offers a tiered housing system that caters to everyone. Through a unique membership system and the "Pay It Forward" program, HAUS fosters community support and resilience, especially in response to climate change and displacement.
+
+## Tiers of Housing
+
+### 1. LifeSaver Tier
+Designed to provide immediate shelter and support for those in desperate need.
+- **Basic Necessities:** Clean, safe, and secure housing with essential amenities.
+- **Support Services:** Access to social services, counseling, and job placement programs.
+- **Community Support:** Opportunities for residents to connect with support groups and community organizations.
+
+### 2. Everyday Traveler Tier
+For everyday people traveling for work or leisure who need a comfortable place to stay.
+- **Comfortable Accommodations:** Well-furnished rooms with modern amenities.
+- **Convenient Locations:** Properties near business districts, tourist attractions, and transportation hubs.
+- **Flexible Stays:** Options for short-term and long-term stays with competitive pricing.
+
+### 3. Luxe Tier
+For those seeking a luxurious living experience.
+- **High-End Amenities:** Premium furnishings, private balconies, rooftop access, and in-house fitness centers.
+- **Exclusive Services:** Concierge services, private chefs, and housekeeping.
+- **Prime Locations:** Properties in upscale neighborhoods with easy access to fine dining, shopping, and entertainment.
+
+## Membership System
+HAUS offers a unique membership system that encourages users to improve their living conditions over time, building a "housing credit" that unlocks higher-tier benefits.
+
+### Membership Benefits:
+- **Points Accumulation:** Earn points for each stay and through community involvement or referrals.
+- **Tier Progression:** Move from the LifeSaver Tier to the Luxe Tier by accumulating points and maintaining a positive rental history.
+- **Exclusive Discounts:** Enjoy discounts on stays, services, and amenities at higher tiers.
+- **Priority Booking:** Get priority access to properties during peak seasons or high-demand periods.
+- **Community Building:** Participate in community events and initiatives to earn additional points and enhance your membership status.
+
+## Pay It Forward Program
+HAUS incorporates a "Pay It Forward" program to enable members, especially those at higher tiers, to support others in need.
+
+### Program Features:
+- **Sponsor a Stay:** Members can sponsor stays for those in the LifeSaver Tier, providing them with immediate housing and support.
+- **Upgrade Opportunities:** Members at higher tiers can contribute points or funds to help upgrade the accommodations of those in lower tiers.
+- **Community Impact:** Members can choose to fund specific community initiatives or emergency relief efforts, especially in response to climate change and displacement crises.
+- **Hosting and Volunteering:** Similar to Airbnb, members can host families or individuals, offering them temporary shelter and a chance to rebuild their lives.
+
+## App Icon
+![App Icon](public/家.JPEG)  
+![Alternate App Icon](public/haus.jpeg)
+
+## Color Palette
+
 ---
 
-  <h1>"Rent a Room" App</h1>
-
----
-# Color Palette
----
 ### Primary Colors
-<span style="display:inline-block;width:20px;height:20px;background-color:#000000;border-radius:5px;margin-right:10px;"></span> **<span style="color:#000000;">Black (#000000)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#FFD700;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FFD700;">Gold (#FFD700)</span>**
+<span style="display:inline-block;width:20px;height:20px;background-color:#000000;border-radius:5px;margin-right:10px;"></span> **<span style="color:#000000;">Black (#000000)</span>**  
+<span style="display:inline-block;width:20px;height:20px;background-color:#FFD700;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FFD700;">Gold (#FFD700)</span>**  
 <span style="display:inline-block;width:20px;height:20px;background-color:#FFFFFF;border-radius:5px;margin-right:10px;border:1px solid #000;"></span> **<span style="color:#FFFFFF;">White (#FFFFFF)</span>**
 
-### Complementary Colors
-<span style="display:inline-block;width:20px;height:20px;background-color:#333333;border-radius:5px;margin-right:10px;"></span> **<span style="color:#333333;">Dark Gray (#333333)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#FFF5CC;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FFF5CC;">Light Gold (#FFF5CC)</span>**
-
-### Analogous Colors
-<span style="display:inline-block;width:20px;height:20px;background-color:#001F3F;border-radius:5px;margin-right:10px;"></span> **<span style="color:#001F3F;">Dark Blue (#001F3F)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#CCCCCC;border-radius:5px;margin-right:10px;"></span> **<span style="color:#CCCCCC;">Light Gray (#CCCCCC)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#C0C0C0;border-radius:5px;margin-right:10px;"></span> **<span style="color:#C0C0C0;">Silver (#C0C0C0)</span>**
-
-### Accent Colors
-<span style="display:inline-block;width:20px;height:20px;background-color:#008080;border-radius:5px;margin-right:10px;"></span> **<span style="color:#008080;">Teal (#008080)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#FF7F50;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FF7F50;">Coral (#FF7F50)</span>**
 ---
 
-### App Icon
+### Complementary Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#333333;border-radius:5px;margin-right:10px;"></span> **<span style="color:#333333;">Dark Gray (#333333)</span>**  
+<span style="display:inline-block;width:20px;height:20px;background-color:#FFF5CC;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FFF5CC;">Light Gold (#FFF5CC)</span>**
 
+---
 
-  <p>This is a web application built with React that enables users to rent rooms with easy weekly payments, similar to Airbnb. The application features full CRUD functionality with a robust back-end built using Golang, connected to an SQL database, and using JWT and Redis for user authentication and session tracking.</p>
+### Analogous Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#001F3F;border-radius:5px;margin-right:10px;"></span> **<span style="color:#001F3F;">Dark Blue (#001F3F)</span>**  
+<span style="display:inline-block;width:20px;height:20px;background-color:#CCCCCC;border-radius:5px;margin-right:10px;"></span> **<span style="color:#CCCCCC;">Light Gray (#CCCCCC)</span>**  
+<span style="display:inline-block;width:20px;height:20px;background-color:#C0C0C0;border-radius:5px;margin-right:10px;"></span> **<span style="color:#C0C0C0;">Silver (#C0C0C0)</span>**
 
-  <h2>Features</h2>
+---
 
-  <ul>
-    <li>User registration and login: Users can create an account and log in to access the rental functionality.</li>
-    <li>Room selection: Users can view available rooms and choose the one they want to rent.</li>
-    <li>Payment system: Users can make weekly payments using an integrated payment system.</li>
-    <li>Session tracking: User sessions are tracked and managed using JWT and Redis.</li>
-    <li>Admin dashboard: An admin can view all active user sessions and invalidate tokens to revoke access.</li>
-  </ul>
+### Accent Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#008080;border-radius:5px;margin-right:10px;"></span> **<span style="color:#008080;">Teal (#008080)</span>**  
+<span style="display:inline-block;width:20px;height:20px;background-color:#FF7F50;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FF7F50;">Coral (#FF7F50)</span>**
 
-  <h2>Installation</h2>
+---
 
-  <p>To get started with the Rent a Room App, follow the steps below:</p>
+## Implementation Plan
 
-  <h3>Prerequisites</h3>
+### 1. Backend Development
+- **User Authentication:** Implement JWT authentication for secure user access.
+- **Database Schema:** Create tables for Users, Memberships, Housing Tiers, Bookings, Points, and Sponsorships.
+- **API Endpoints:** Develop endpoints for user registration, login, booking, point accumulation, tier progression, and sponsorships.
 
-  <ul>
-    <li>Node.js: Make sure you have Node.js installed on your machine. You can download it from the official website: <a href="https://nodejs.org">https://nodejs.org</a>.</li>
-    <li>Go: Install Go from the official website: <a href="https://golang.org">https://golang.org</a>.</li>
-    <li>PostgreSQL: Install PostgreSQL from the official website: <a href="https://www.postgresql.org">https://www.postgresql.org</a>.</li>
-    <li>Redis: Install Redis from the official website: <a href="https://redis.io">https://redis.io</a>.</li>
-  </ul>
+### 2. Frontend Development
+- **User Interface:** Design a clean and user-friendly interface using React.
+- **Dashboard:** Create a dashboard where users can view their membership status, points, available properties, and sponsorship opportunities.
+- **Booking System:** Implement a seamless booking system with filtering options for different tiers.
+- **Pay It Forward:** Add features for sponsoring stays, contributing points or funds, and participating in community initiatives.
+- **Notifications:** Add notification features for booking confirmations, point updates, tier progression, and sponsorship opportunities.
 
-  <h3>Clone the repository</h3>
+### 3. Testing and Deployment
+- **Testing:** Conduct unit, integration, and end-to-end testing to ensure the application works smoothly.
+- **Deployment:** Deploy the application using Docker and set up CI/CD pipelines for continuous integration and deployment.
 
-  <ol>
-    <li>Open your terminal or command prompt.</li>
-    <li>Clone the repository using the following command:
-      <pre><code>git clone https://github.com/your-username/haus.git</code></pre>
-      <p>This will create a local copy of the project on your machine.</p>
-    </li>
-  </ol>
+## Future Enhancements
+- **Mobile App:** Develop a mobile application to make booking and membership management more convenient.
+- **AI Recommendations:** Integrate AI to provide personalized property recommendations based on user preferences and history.
+- **Partnerships:** Partner with local businesses and organizations to offer exclusive benefits to HAUS members.
 
-  <h3>Navigate to the project directory</h3>
-
-  <pre><code>cd haus</code></pre>
-
-  <h3>Backend Setup</h3>
-
-  <p>Once inside the project directory, set up the backend:</p>
-
-  <ol>
-    <li>Navigate to the backend directory:
-      <pre><code>cd backend</code></pre>
-    </li>
-    <li>Install Go dependencies:
-      <pre><code>go mod tidy</code></pre>
-    </li>
-    <li>Create a .env file in the backend directory with the following content:
-      <pre><code>DB_HOST=your-db-host
-DB_PORT=your-db-port
-DB_USER=your-db-user
-DB_PASSWORD=your-db-password
-DB_NAME=your-db-name
-REDIS_HOST=your-redis-host
-REDIS_PORT=your-redis-port
-JWT_SECRET=your-jwt-secret</code></pre>
-    </li>
-    <li>Run the backend server:
-      <pre><code>go run main.go</code></pre>
-    </li>
-  </ol>
-
-  <h3>Frontend Setup</h3>
-
-  <p>Now, set up the frontend:</p>
-
-  <ol>
-    <li>Navigate to the frontend directory:
-      <pre><code>cd frontend</code></pre>
-    </li>
-    <li>Install the project dependencies by running the following command:
-      <pre><code>npm install</code></pre>
-    </li>
-    <li>Create a .env file in the frontend directory with the following content:
-      <pre><code>REACT_APP_API_URL=http://localhost:8080</code></pre>
-    </li>
-    <li>Run the React app:
-      <pre><code>npm start</code></pre>
-    </li>
-  </ol>
-
-  <h3>Configuration</h3>
-
-  <p>Ensure you have configured your database and Redis properly. The backend will connect to these services using the environment variables specified in the .env file.</p>
-
-  <p>That's it! You have successfully installed and configured the Rent a Room App on your machine. Now you can proceed to the next section to learn how to use the app.</p>
-
-  <h2>Getting Started with Create React App</h2>
-
-  <p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
-
-  <h3>Available Scripts</h3>
-
-  <p>In the project directory, you can run:</p>
-
-  <h4><code>npm start</code></h4>
-  <p>Runs the app in the development mode.<br>
-  Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in your browser.<br>
-  The page will reload when you make changes.<br>
-  You may also see any lint errors in the console.</p>
-
-  <h4><code>npm test</code></h4>
-  <p>Launches the test runner in the interactive watch mode.<br>
-  See the section about <a href="https://facebook.github.io/create-react-app/docs/running-tests">running tests</a> for more information.</p>
-
-  <h4><code>npm run build</code></h4>
-  <p>Builds the app for production to the <code>build</code> folder.<br>
-  It correctly bundles React in production mode and optimizes the build for the best performance.<br>
-  The build is minified and the filenames include the hashes.<br>
-  Your app is ready to be deployed!<br>
-  See the section about <a href="https://facebook.github.io/create-react-app/docs/deployment">deployment</a> for more information.</p>
-
-  <h4><code>npm run eject</code></h4>
-  <p><strong>Note: this is a one-way operation. Once you <code>eject</code>, you can't go back!</strong><br>
-  If you aren't satisfied with the build tool and configuration choices, you can <code>eject</code> at any time. This command will remove the single build dependency from your project.<br>
-  Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except <code>eject</code> will still work, but they will point to the copied scripts so you can tweak them. At this point, you're on your own.<br>
-  You don't have to ever use <code>eject</code>. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However, we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.</p>
-
-  <h3>Learn More</h3>
-
-  <p>You can learn more in the <a href="https://facebook.github.io/create-react-app/docs/getting-started">Create React App documentation</a>.<br>
-  To learn React, check out the <a href="https://reactjs.org/">React documentation</a>.</p>
-
-  <h3>Code Splitting</h3>
-  <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/code-splitting">https://facebook.github.io/create-react-app/docs/code-splitting</a></p>
-
-  <h3>Analyzing the Bundle Size</h3>
-  <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size">https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size</a></p>
-
-  <h3>Making a Progressive Web App</h3>
-  <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app">https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app</a></p>
-
-  <h3>Advanced Configuration</h3>
-  <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/advanced-configuration">https://facebook.github.io/create-react-app/docs/advanced-configuration</a></p>
-
-  <h3>Deployment</h3>
-  <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/deployment">https://facebook.github.io/create-react-app/docs/deployment</a></p>
-
-  <h3><code>npm run build</code> fails to minify</h3>
-  <p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify">https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify</a></p>
-</body>
-</html>
+By addressing the diverse needs of the NYC population and providing a pathway to improved living conditions, HAUS aims to make a significant positive impact on the community. The Pay It Forward program further enhances this mission by enabling members to support others, fostering a strong sense of community and resilience in the face of challenges such as climate change and displacement.
