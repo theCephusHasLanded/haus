@@ -23,6 +23,134 @@ For those seeking a luxurious living experience.
 - **Exclusive Services:** Concierge services, private chefs, and housekeeping.
 - **Prime Locations:** Properties in upscale neighborhoods with easy access to fine dining, shopping, and entertainment.
 
+## Security Features
+
+### LifeSaver Tier (Lowest Tier)
+Designed to offer more freedom and build trust through responsible behavior.
+1. **Digital Check-In and Check-Out**
+   - QR Code Entry
+   - Mobile App Integration
+
+2. **Surveillance and Monitoring**
+   - In-Unit Cameras
+   - Motion Sensors
+
+3. **Smart Locks**
+   - App-Controlled Locks
+   - Temporary Access Codes
+
+4. **Emergency Alerts**
+   - Panic Buttons
+   - Automatic Alerts
+
+5. **User Verification and Background Checks**
+   - ID Verification
+   - Background Checks
+
+6. **Activity Logs**
+   - Check-In/Out Logs
+   - Access History
+
+7. **Community Engagement**
+   - User Ratings and Reviews
+   - In-App Community Forums
+
+8. **Periodic Inspections**
+   - Routine Inspections
+   - Maintenance Alerts
+
+9. **Secure Communication Channels**
+   - In-App Messaging
+   - 24/7 Support
+
+10. **Incentives for Responsible Use**
+    - Reward System
+    - Security Training
+
+### Everyday Traveler Tier (Medium Tier)
+Provides added security while ensuring comfort and convenience.
+1. **Enhanced Digital Check-In**
+   - Biometric Authentication
+   - Advanced Mobile App Features
+
+2. **Surveillance and Monitoring**
+   - Enhanced Camera Systems
+   - Real-Time Monitoring
+
+3. **Advanced Smart Locks**
+   - Biometric and App-Controlled Locks
+   - Multi-Level Access Codes
+
+4. **Comprehensive Emergency Systems**
+   - In-Room Panic Buttons
+   - Direct Line to Security Personnel
+
+5. **Enhanced User Verification**
+   - Multi-Factor Authentication
+   - Detailed Background Checks
+
+6. **Detailed Activity Logs**
+   - Comprehensive Access History
+   - User Behavior Analytics
+
+7. **Community and Social Features**
+   - Verified User Reviews
+   - Enhanced Community Interaction
+
+8. **Regular Maintenance and Inspections**
+   - Frequent Inspections
+   - Proactive Maintenance Alerts
+
+9. **Premium Communication Channels**
+   - Secure In-App Communication
+   - Dedicated 24/7 Support
+
+10. **Advanced Incentives for Proper Use**
+    - Enhanced Reward System
+    - Exclusive Security Workshops
+
+### Luxe Tier (High Tier)
+Combines top-tier security with luxurious living standards.
+1. **Premium Digital Check-In**
+   - Facial Recognition
+   - Personalized Mobile App Experience
+
+2. **High-End Surveillance and Monitoring**
+   - Discreet High-Resolution Cameras
+   - AI-Powered Monitoring Systems
+
+3. **Luxury Smart Locks**
+   - Facial and Fingerprint Recognition
+   - Customizable Access Options
+
+4. **Elite Emergency Systems**
+   - Integrated Panic and Alert Systems
+   - VIP Security Response
+
+5. **Elite User Verification**
+   - Comprehensive Multi-Factor Authentication
+   - In-Depth Background Checks
+
+6. **Premium Activity Logs**
+   - Detailed Access and Behavior Logs
+   - Advanced Security Analytics
+
+7. **Exclusive Community Features**
+   - Premium User Reviews
+   - VIP Community Engagement
+
+8. **Constant Maintenance and Inspections**
+   - Continuous Inspections
+   - Immediate Maintenance Response
+
+9. **Elite Communication Channels**
+   - Ultra-Secure In-App Messaging
+   - Dedicated VIP Support
+
+10. **Exclusive Incentives for Top Users**
+    - Premium Reward System
+    - Personalized Security Consultations
+
 ## Membership System
 HAUS offers a unique membership system that encourages users to improve their living conditions over time, building a "housing credit" that unlocks higher-tier benefits.
 
@@ -43,10 +171,38 @@ HAUS incorporates a "Pay It Forward" program to enable members, especially those
 - **Hosting and Volunteering:** Similar to Airbnb, members can host families or individuals, offering them temporary shelter and a chance to rebuild their lives.
 
 ## App Icon
-![App Icon](public/mobile.jpeg)
-![Alternate App Icon](public/hauses.jpeg)
-![Alternate2 App Icon](public/accomadations.jpeg)
+![App Icon](public/家.JPEG)
+![Alternate App Icon](public/haus.jpeg)
 
+## Color Palette
+
+---
+
+### Primary Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#000000;border-radius:5px;margin-right:10px;"></span> **<span style="color:#000000;">Black (#000000)</span>**
+<span style="display:inline-block;width:20px;height:20px;background-color:#FFD700;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FFD700;">Gold (#FFD700)</span>**
+<span style="display:inline-block;width:20px;height:20px;background-color:#FFFFFF;border-radius:5px;margin-right:10px;border:1px solid #000;"></span> **<span style="color:#FFFFFF;">White (#FFFFFF)</span>**
+
+---
+
+### Complementary Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#333333;border-radius:5px;margin-right:10px;"></span> **<span style="color:#333333;">Dark Gray (#333333)</span>**
+<span style="display:inline-block;width:20px;height:20px;background-color:#FFF5CC;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FFF5CC;">Light Gold (#FFF5CC)</span>**
+
+---
+
+### Analogous Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#001F3F;border-radius:5px;margin-right:10px;"></span> **<span style="color:#001F3F;">Dark Blue (#001F3F)</span>**
+<span style="display:inline-block;width:20px;height:20px;background-color:#CCCCCC;border-radius:5px;margin-right:10px;"></span> **<span style="color:#CCCCCC;">Light Gray (#CCCCCC)</span>**
+<span style="display:inline-block;width:20px;height:20px;background-color:#C0C0C0;border-radius:5px;margin-right:10px;"></span> **<span style="color:#C0C0C0;">Silver (#C0C0C0)</span>**
+
+---
+
+### Accent Colors
+<span style="display:inline-block;width:20px;height:20px;background-color:#008080;border-radius:5px;margin-right:10px;"></span> **<span style="color:#008080;">Teal (#008080)</span>**
+<span style="display:inline-block;width:20px;height:20px;background-color:#FF7F50;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FF7F50;">Coral (#FF7F50)</span>**
+
+---
 
 ## Implementation Plan
 
