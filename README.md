@@ -172,40 +172,6 @@ HAUS incorporates a "Pay It Forward" program to enable members, especially those
 - **Community Impact:** Members can choose to fund specific community initiatives or emergency relief efforts, especially in response to climate change and displacement crises.
 - **Hosting and Volunteering:** Similar to Airbnb, members can host families or individuals, offering them temporary shelter and a chance to rebuild their lives.
 
-## App Icon
-![App Icon](public/家.JPEG)
-![Alternate App Icon](public/haus.jpeg)
-
-## Color Palette
-
----
-
-### Primary Colors
-<span style="display:inline-block;width:20px;height:20px;background-color:#000000;border-radius:5px;margin-right:10px;"></span> **<span style="color:#000000;">Black (#000000)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#FFD700;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FFD700;">Gold (#FFD700)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#FFFFFF;border-radius:5px;margin-right:10px;border:1px solid #000;"></span> **<span style="color:#FFFFFF;">White (#FFFFFF)</span>**
-
----
-
-### Complementary Colors
-<span style="display:inline-block;width:20px;height:20px;background-color:#333333;border-radius:5px;margin-right:10px;"></span> **<span style="color:#333333;">Dark Gray (#333333)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#FFF5CC;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FFF5CC;">Light Gold (#FFF5CC)</span>**
-
----
-
-### Analogous Colors
-<span style="display:inline-block;width:20px;height:20px;background-color:#001F3F;border-radius:5px;margin-right:10px;"></span> **<span style="color:#001F3F;">Dark Blue (#001F3F)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#CCCCCC;border-radius:5px;margin-right:10px;"></span> **<span style="color:#CCCCCC;">Light Gray (#CCCCCC)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#C0C0C0;border-radius:5px;margin-right:10px;"></span> **<span style="color:#C0C0C0;">Silver (#C0C0C0)</span>**
-
----
-
-### Accent Colors
-<span style="display:inline-block;width:20px;height:20px;background-color:#008080;border-radius:5px;margin-right:10px;"></span> **<span style="color:#008080;">Teal (#008080)</span>**
-<span style="display:inline-block;width:20px;height:20px;background-color:#FF7F50;border-radius:5px;margin-right:10px;"></span> **<span style="color:#FF7F50;">Coral (#FF7F50)</span>**
-
----
-
 ## Implementation Plan
 
 ### 1. Backend Development
