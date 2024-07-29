@@ -1,57 +1,156 @@
 package main
 
 import (
-    "github.com/gin-gonic/gin"
-    "gorm.io/driver/postgres"
-    "gorm.io/gorm"
     "net/http"
+	"gorm.io/gorm"
+    "github.com/gin-gonic/gin"
+    "github.com/thecephushaslanded/haus/backend/utils"
+    "github.com/thecephushaslanded/haus/backend/routes"
 )
 
 var db *gorm.DB
 var err error
 
-type User struct {
-    ID    uint   `json:"id" gorm:"primaryKey"`
-    Name  string `json:"name"`
-    Email string `json:"email"`
-}
-
 func main() {
     // Initialize Gin
     router := gin.Default()
 
-    // Connect to PostgreSQL database
-    dsn := "host=localhost user=username password=password dbname=mydb port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-    db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
-    if err != nil {
-        panic("Failed to connect to the database")
-    }
-
-    // Migrate the schema
-    db.AutoMigrate(&User{})
+    // Initialize Database
+    utils.InitDatabase()
 
     // Define routes
-    router.GET("/", func(c *gin.Context) {
-        c.JSON(200, gin.H{
-            "message": "Hello, Gin with GORM!",
-        })
-    })
+    routes.AuthRoutes(router)
 
-    router.GET("/users", func(c *gin.Context) {
-        var users []User
-        db.Find(&users)
-        c.JSON(http.StatusOK, users)
-    })
-
-    router.POST("/users", func(c *gin.Context) {
-        var user User
-        if err := c.ShouldBindJSON(&user); err != nil {
-            c.JSON(http.StatusBadRequest, err.Error())
-            return
-        }
-        db.Create(&user)
-        c.JSON(http.StatusCreated, user)
-    })
+    authorized := router.Group("/")
+    authorized.Use(authMiddleware())
+    {
+        authorized.GET("/users", getUsers)
+        authorized.POST("/users", createUser)
+        authorized.GET("/rooms", getRooms)
+        authorized.POST("/rooms", createRoom)
+        authorized.GET("/bookings", getBookings)
+        authorized.POST("/bookings", createBooking)
+        authorized.GET("/payments", getPayments)
+        authorized.POST("/payments", createPayment)
+    }
 
     router.Run(":8080") // Gin server on port 8080
+}
+
+// Middleware to protect routes
+func authMiddleware() gin.HandlerFunc {
+    return func(c *gin.Context) {
+        tokenString := c.GetHeader("Authorization")
+        if tokenString == "" {
+            c.JSON(http.StatusUnauthorized, gin.H{"error": "Request does not contain an access token"})
+            c.Abort()
+            return
+        }
+
+        claims, err := utils.ValidateJWT(tokenString)
+        if err != nil || claims.Valid() != nil {
+            c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token "})
+            c.Abort()
+            return
+        }
+
+        c.Set("username", claims.Username)
+        c.Next()
+    }
+}
+
+// Handler function to get all users
+func getUsers(c *gin.Context) {
+    var users []utils.User
+    if result := utils.DB.Find(&users); result.Error != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+        return
+    }
+    c.JSON(http.StatusOK, users)
+}
+
+// Handler function to create a new user
+func createUser(c *gin.Context) {
+    var user utils.User
+    if err := c.ShouldBindJSON(&user); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+        return
+    }
+    if result := utils.DB.Create(&user); result.Error != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+        return
+    }
+    c.JSON(http.StatusCreated, user)
+}
+
+// Handler function to get all rooms
+func getRooms(c *gin.Context) {
+    var rooms []utils.Room
+    if result := utils.DB.Find(&rooms); result.Error != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+        return
+    }
+    c.JSON(http.StatusOK, rooms)
+}
+
+// Handler function to create a new room
+func createRoom(c *gin.Context) {
+    var room utils.Room
+    if err := c.ShouldBindJSON(&room); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+        return
+    }
+    if result := utils.DB.Create(&room); result.Error != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+        return
+    }
+    c.JSON(http.StatusCreated, room)
+}
+
+// Handler function to get all bookings
+func getBookings(c *gin.Context) {
+    var bookings []utils.Booking
+    if result := utils.DB.Find(&bookings); result.Error != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+        return
+    }
+    c.JSON(http.StatusOK, bookings)
+}
+
+// Handler function to create a new booking
+func createBooking(c *gin.Context) {
+    var booking utils.Booking
+    if err := c.ShouldBindJSON(&booking); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+        return
+    }
+    if result := utils.DB.Create(&booking); result.Error != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+        return
+    }
+    c.JSON(http.StatusCreated, booking)
+}
+
+// Handler function to get all payments
+func getPayments(c *gin.Context) {
+    var payments []utils.Payment
+    if result := utils.DB.Find(&payments); result.Error != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+        return
+    }
+    c.JSON(http.StatusOK, payments)
+}
+
+// Handler function to create a new payment
+func createPayment(c *gin.Context) {
+    var payment utils.Payment
+    if err := c.ShouldBindJSON(&payment); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+        return
+    }
+    if result := utils.DB.Create(&payment); result.Error != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+        return
+    }
+    c.JSON(http.StatusCreated, payment)
 }
