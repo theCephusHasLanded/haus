@@ -2,8 +2,10 @@ package main
 
 import (
     "net/http"
-	"gorm.io/gorm"
+    "time"
+    "gorm.io/gorm"
     "github.com/gin-gonic/gin"
+    "github.com/gin-contrib/cors"
     "github.com/thecephushaslanded/haus/backend/utils"
     "github.com/thecephushaslanded/haus/backend/routes"
 )
@@ -14,6 +16,16 @@ var err error
 func main() {
     // Initialize Gin
     router := gin.Default()
+
+    // Configure CORS
+    router.Use(cors.New(cors.Config{
+        AllowOrigins:     []string{"*"},
+        AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"},
+        AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type", "Authorization"},
+        ExposeHeaders:    []string{"Content-Length"},
+        AllowCredentials: true,
+        MaxAge:           12 * time.Hour,
+    }))
 
     // Initialize Database
     utils.InitDatabase()
@@ -49,7 +61,7 @@ func authMiddleware() gin.HandlerFunc {
 
         claims, err := utils.ValidateJWT(tokenString)
         if err != nil || claims.Valid() != nil {
-            c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token "})
+            c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
             c.Abort()
             return
         }
