@@ -12,22 +12,18 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:8080/login', { username, password });
-      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('token', response.data.token); // Store the token in localStorage
       setError('');
-      navigate('/'); // Redirect to the homepage after successful login
+      navigate('/dashboard'); // Redirect to the dashboard after successful login
     } catch (err) {
       setError('Invalid username or password');
     }
   };
 
-  const handleRegisterNavigation = () => {
-    navigate('/register'); // Navigate to the register page
-  };
-
   return (
     <Container>
       <Box maxW="md" mx="auto" mt={8}>
-        <h2>Welcome HAUM</h2>
+        <h2>Welcome to HAUS</h2>
         {error && (
           <Alert status="error" mb={4}>
             <AlertIcon />
@@ -57,8 +53,8 @@ const Login = () => {
         <Button colorScheme="blue" onClick={handleLogin} width="full" mb={4}>
           Login
         </Button>
-        <Button colorScheme="teal" onClick={handleRegisterNavigation} width="full">
-          Register
+        <Button colorScheme="teal" onClick={() => navigate('/register')} width="full">
+          Sign Up / Register
         </Button>
       </Box>
     </Container>

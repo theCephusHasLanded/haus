@@ -1,29 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../utils/axios';
+import { Container, Box, Heading, Text } from '@chakra-ui/react';
 
 const PaymentList = () => {
   const [payments, setPayments] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchPayments = async () => {
-      const result = await axios.get('http://localhost:8080/payments', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      });
-      setPayments(result.data);
+      try {
+        const response = await axiosInstance.get('/payments');
+        setPayments(response.data);
+      } catch (err) {
+        setError('Failed to fetch payments');
+      }
     };
 
     fetchPayments();
   }, []);
 
   return (
-    <div>
-      <h2>Payment List</h2>
-      <ul>
-        {payments.map(payment => (
-          <li key={payment.id}>{payment.bookingId} - {payment.amount} - {payment.paymentDate}</li>
-        ))}
-      </ul>
-    </div>
+    <Container>
+      <Box mt={4}>
+        <Heading as="h2" size="lg">Payments</Heading>
+        {error && <Text color="red.500">{error}</Text>}
+        <ul>
+          {payments.map(payment => (
+            <li key={payment.ID}>{payment.amount}</li>
+          ))}
+        </ul>
+      </Box>
+    </Container>
   );
 };
 

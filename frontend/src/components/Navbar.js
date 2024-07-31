@@ -4,7 +4,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue('gray.100', 'gray.900');
-  const color = useColorModeValue('black', 'white');
+  // const color = useColorModeValue('black', 'white');
 
   return (
     <Box bg={bgColor} px={4}>

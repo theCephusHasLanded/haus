@@ -5,7 +5,7 @@ import (
     jwt "github.com/dgrijalva/jwt-go"
 )
 
-var jwtKey = []byte("your_secret_key")
+var jwtKey = []byte("your_secret_key") // Replace with your secret key
 
 type Claims struct {
     Username string `json:"username"`
@@ -13,7 +13,7 @@ type Claims struct {
 }
 
 func GenerateJWT(username string) (string, error) {
-    expirationTime := time.Now().Add(5 * time.Minute)
+    expirationTime := time.Now().Add(24 * time.Hour) // Token valid for 24 hours
     claims := &Claims{
         Username: username,
         StandardClaims: jwt.StandardClaims{

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../utils/axios';
 import { Container, Box, Heading, Text } from '@chakra-ui/react';
 
 const UserList = () => {
@@ -8,11 +8,8 @@ const UserList = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:8080/users', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axiosInstance.get('/users');
         setUsers(response.data);
       } catch (err) {
         setError('Failed to fetch users');
@@ -29,7 +26,7 @@ const UserList = () => {
         {error && <Text color="red.500">{error}</Text>}
         <ul>
           {users.map(user => (
-            <li key={user.ID}>{user.Username}</li>
+            <li key={user.ID}>{user.username}</li>
           ))}
         </ul>
       </Box>
