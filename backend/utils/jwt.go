@@ -2,29 +2,32 @@ package utils
 
 import (
     "time"
-    jwt "github.com/dgrijalva/jwt-go"
-)
+    "fmt"
+    "os"
+    "errors"
+    jwt "github.com/golang-jwt/jwt/v5")
 
-var jwtKey = []byte("your_secret_key") // Replace with your secret key
+    var jwtKey = []byte(os.Getenv("JWT_SECRET_KEY"))
 
 type Claims struct {
     Username string `json:"username"`
-    jwt.StandardClaims
+    jwt.RegisteredClaims
 }
+
 
 func GenerateJWT(username string) (string, error) {
     expirationTime := time.Now().Add(24 * time.Hour) // Token valid for 24 hours
     claims := &Claims{
         Username: username,
-        StandardClaims: jwt.StandardClaims{
-            ExpiresAt: expirationTime.Unix(),
+        RegisteredClaims: jwt.RegisteredClaims{
+            ExpiresAt: jwt.NewNumericDate(expirationTime),
         },
     }
+
 
     token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
     return token.SignedString(jwtKey)
 }
-
 func ValidateJWT(tokenString string) (*Claims, error) {
     claims := &Claims{}
     token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
@@ -32,11 +35,12 @@ func ValidateJWT(tokenString string) (*Claims, error) {
     })
 
     if err != nil {
+        fmt.Println("Token validation error:", err)
         return nil, err
     }
 
     if !token.Valid {
-        return nil, err
+        return nil, errors.New("invalid token")
     }
 
     return claims, nil

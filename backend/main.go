@@ -1,13 +1,16 @@
 package main
 
 import (
-    "net/http"
-    "time"
-    "gorm.io/gorm"
-    "github.com/gin-gonic/gin"
-    "github.com/gin-contrib/cors"
-    "github.com/thecephushaslanded/haus/backend/utils"
-    "github.com/thecephushaslanded/haus/backend/routes"
+	"fmt"
+	"net/http"
+	"time"
+    "strings"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+	"github.com/thecephushaslanded/haus/backend/routes"
+	"github.com/thecephushaslanded/haus/backend/utils"
+	"gorm.io/gorm"
 )
 
 var db *gorm.DB
@@ -53,15 +56,17 @@ func main() {
 func authMiddleware() gin.HandlerFunc {
     return func(c *gin.Context) {
         tokenString := c.GetHeader("Authorization")
+        tokenString = strings.TrimPrefix(tokenString, "Bearer ")
+        fmt.Println("Received token:", tokenString)
         if tokenString == "" {
-            c.JSON(http.StatusUnauthorized, gin.H{"error": "Request does not contain an access token"})
+            c.JSON(http.StatusUnauthorized, gin.H{"error": "Missing authorization token"})
             c.Abort()
             return
         }
 
         claims, err := utils.ValidateJWT(tokenString)
-        if err != nil || claims.Valid() != nil {
-            c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
+        if err != nil {
+            c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid or expired token"})
             c.Abort()
             return
         }
@@ -70,6 +75,7 @@ func authMiddleware() gin.HandlerFunc {
         c.Next()
     }
 }
+
 
 // Handler function to get all users
 func getUsers(c *gin.Context) {
