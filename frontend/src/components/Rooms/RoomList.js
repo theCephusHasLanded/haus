@@ -26,7 +26,7 @@ const RoomList = () => {
         {error && <Text color="red.500">{error}</Text>}
         <ul>
           {rooms.map(room => (
-            <li key={room.ID}>{room.room_number}</li>
+            <li key={room.ID}>{room.RoomNumber}: {room.Description}, ${room.PricePerWeek}/week</li>
           ))}
         </ul>
       </Box>

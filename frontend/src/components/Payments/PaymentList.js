@@ -26,7 +26,7 @@ const PaymentList = () => {
         {error && <Text color="red.500">{error}</Text>}
         <ul>
           {payments.map(payment => (
-            <li key={payment.ID}>{payment.amount}</li>
+            <li key={payment.ID}>${payment.Amount} - {payment.PaymentStatus}</li>
           ))}
         </ul>
       </Box>

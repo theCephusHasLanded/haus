@@ -1,8 +1,8 @@
 package utils
 
 import (
-    "time"
     "log"
+    "time"
     "gorm.io/driver/postgres"
     "gorm.io/gorm"
 )
@@ -66,6 +66,10 @@ func seedDatabase() {
         {Username: "yoon_hee", Email: "yoonhee@example.com", Password: "securepassword", Role: "user"},
         {Username: "james_smith", Email: "james.smith@example.com", Password: "securepassword", Role: "user"},
         {Username: "maria_garcia", Email: "maria.garcia@example.com", Password: "securepassword", Role: "user"},
+        {Username: "john_doe", Email: "john.doe@example.com", Password: "securepassword", Role: "admin"},
+        {Username: "alice_jones", Email: "alice.jones@example.com", Password: "securepassword", Role: "user"},
+        {Username: "bob_brown", Email: "bob.brown@example.com", Password: "securepassword", Role: "user"},
+        {Username: "carol_white", Email: "carol.white@example.com", Password: "securepassword", Role: "user"},
     }
     for _, user := range users {
         var existingUser User
@@ -80,6 +84,10 @@ func seedDatabase() {
         {RoomNumber: "101", Description: "Cozy single room with a beautiful view", PricePerWeek: 250.00, IsAvailable: true},
         {RoomNumber: "202", Description: "Modern double room with ensuite bathroom", PricePerWeek: 400.00, IsAvailable: true},
         {RoomNumber: "303", Description: "Luxurious suite with all amenities included", PricePerWeek: 1000.00, IsAvailable: true},
+        {RoomNumber: "404", Description: "Spacious family room with a balcony", PricePerWeek: 700.00, IsAvailable: true},
+        {RoomNumber: "505", Description: "Elegant room with a king-sized bed", PricePerWeek: 600.00, IsAvailable: true},
+        {RoomNumber: "606", Description: "Compact room with essential amenities", PricePerWeek: 200.00, IsAvailable: true},
+        {RoomNumber: "707", Description: "Premium suite with a city view", PricePerWeek: 1200.00, IsAvailable: true},
     }
     for _, room := range rooms {
         var existingRoom Room
@@ -94,6 +102,10 @@ func seedDatabase() {
         {UserID: 1, RoomID: 1, StartDate: time.Date(2024, 8, 1, 0, 0, 0, 0, time.UTC), EndDate: time.Date(2024, 8, 7, 0, 0, 0, 0, time.UTC), Status: "confirmed"},
         {UserID: 2, RoomID: 2, StartDate: time.Date(2024, 8, 10, 0, 0, 0, 0, time.UTC), EndDate: time.Date(2024, 8, 15, 0, 0, 0, 0, time.UTC), Status: "confirmed"},
         {UserID: 3, RoomID: 3, StartDate: time.Date(2024, 8, 20, 0, 0, 0, 0, time.UTC), EndDate: time.Date(2024, 8, 27, 0, 0, 0, 0, time.UTC), Status: "confirmed"},
+        {UserID: 4, RoomID: 4, StartDate: time.Date(2024, 8, 1, 0, 0, 0, 0, time.UTC), EndDate: time.Date(2024, 8, 7, 0, 0, 0, 0, time.UTC), Status: "pending"},
+        {UserID: 5, RoomID: 5, StartDate: time.Date(2024, 8, 10, 0, 0, 0, 0, time.UTC), EndDate: time.Date(2024, 8, 15, 0, 0, 0, 0, time.UTC), Status: "cancelled"},
+        {UserID: 6, RoomID: 6, StartDate: time.Date(2024, 8, 5, 0, 0, 0, 0, time.UTC), EndDate: time.Date(2024, 8, 12, 0, 0, 0, 0, time.UTC), Status: "confirmed"},
+        {UserID: 7, RoomID: 7, StartDate: time.Date(2024, 8, 15, 0, 0, 0, 0, time.UTC), EndDate: time.Date(2024, 8, 20, 0, 0, 0, 0, time.UTC), Status: "confirmed"},
     }
     for _, booking := range bookings {
         var existingBooking Booking
@@ -108,6 +120,10 @@ func seedDatabase() {
         {BookingID: 1, Amount: 250.00, PaymentDate: time.Date(2024, 8, 1, 0, 0, 0, 0, time.UTC), PaymentStatus: "paid"},
         {BookingID: 2, Amount: 400.00, PaymentDate: time.Date(2024, 8, 10, 0, 0, 0, 0, time.UTC), PaymentStatus: "paid"},
         {BookingID: 3, Amount: 1000.00, PaymentDate: time.Date(2024, 8, 20, 0, 0, 0, 0, time.UTC), PaymentStatus: "paid"},
+        {BookingID: 4, Amount: 700.00, PaymentDate: time.Date(2024, 8, 1, 0, 0, 0, 0, time.UTC), PaymentStatus: "pending"},
+        {BookingID: 5, Amount: 600.00, PaymentDate: time.Date(2024, 8, 10, 0, 0, 0, 0, time.UTC), PaymentStatus: "cancelled"},
+        {BookingID: 6, Amount: 200.00, PaymentDate: time.Date(2024, 8, 5, 0, 0, 0, 0, time.UTC), PaymentStatus: "paid"},
+        {BookingID: 7, Amount: 1200.00, PaymentDate: time.Date(2024, 8, 15, 0, 0, 0, 0, time.UTC), PaymentStatus: "paid"},
     }
     for _, payment := range payments {
         var existingPayment Payment

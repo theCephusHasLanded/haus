@@ -26,7 +26,7 @@ const UserList = () => {
         {error && <Text color="red.500">{error}</Text>}
         <ul>
           {users.map(user => (
-            <li key={user.ID}>{user.username}</li>
+            <li key={user.ID}>{user.Username} ({user.Email})</li>
           ))}
         </ul>
       </Box>

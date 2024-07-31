@@ -26,7 +26,9 @@ const BookingsList = () => {
         {error && <Text color="red.500">{error}</Text>}
         <ul>
           {bookings.map(booking => (
-            <li key={booking.ID}>{`Booking ID: ${booking.ID}, Room ID: ${booking.room_id}, User ID: ${booking.user_id}, Status: ${booking.status}`}</li>
+             <li key={booking.ID}>
+             Booking ID: {booking.ID}, Room ID: {booking.RoomID}, User ID: {booking.UserID}, Status: {booking.Status}
+           </li>
           ))}
         </ul>
       </Box>
