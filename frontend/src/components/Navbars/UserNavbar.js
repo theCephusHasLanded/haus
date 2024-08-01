@@ -1,10 +1,11 @@
-import { Box, Flex, Link, Button, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Link, Button, useColorMode, useColorModeValue, Avatar, Text } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
-const Navbar = () => {
+const UserNavbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue('gray.100', 'gray.900');
-  // const color = useColorModeValue('black', 'white');
+  const username = localStorage.getItem('username');
+  const role = localStorage.getItem('role');
 
   return (
     <Box bg={bgColor} px={4}>
@@ -16,6 +17,10 @@ const Navbar = () => {
           <Link href="/rooms" px={2}>Rooms</Link>
           <Link href="/bookings" px={2}>Bookings</Link>
           <Link href="/payments" px={2}>Payments</Link>
+          <Flex alignItems="center" ml={4}>
+            <Avatar name={username} src={`https://i.pravatar.cc/150?u=${username}`} size="sm" />
+            <Text ml={2}>{username} ({role})</Text>
+          </Flex>
           <Button onClick={toggleColorMode} ml={4}>
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </Button>
@@ -25,4 +30,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default UserNavbar;

@@ -7,12 +7,14 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:8080/login', { username, password });
-      localStorage.setItem('token', response.data.token); // Store the token in localStorage
+      localStorage.setItem('token', response.data.token); // Store the token
+      localStorage.setItem('username', response.data.username); // Store the username
+      localStorage.setItem('role', response.data.role); // Store the user role
       setError('');
       navigate('/dashboard'); // Redirect to the dashboard after successful login
     } catch (err) {

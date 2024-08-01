@@ -4,9 +4,10 @@ import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/Login/LoginPage';
 import RegisterPage from './pages/Login/RegisterPage';
 import DashboardPage from './pages/Dashboard/DashboardPage';
-import RoomsPage from './pages/Rooms/RoomsPage';
-import BookingsPage from './pages/Bookings/BookingsPage';
-import PaymentsPage from './pages/Payments/PaymentsPage';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import RoomList from './components/Rooms/RoomList';
+import PaymentList from './components/Payments/PaymentList';
+import BookingsList from './components/Bookings/BookingList';
 import Layout from './components/Layout';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -18,9 +19,10 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/" element={<PrivateRoute element={<Layout><HomePage /></Layout>} />} />
         <Route path="/dashboard" element={<PrivateRoute element={<Layout><DashboardPage /></Layout>} />} />
-        <Route path="/rooms" element={<PrivateRoute element={<Layout><RoomsPage /></Layout>} />} />
-        <Route path="/bookings" element={<PrivateRoute element={<Layout><BookingsPage /></Layout>} />} />
-        <Route path="/payments" element={<PrivateRoute element={<Layout><PaymentsPage /></Layout>} />} />
+        <Route path="/admin" element={<PrivateRoute element={<Layout><AdminDashboard /></Layout>} />} />
+        <Route path="/rooms" element={<PrivateRoute element={<Layout><RoomList /></Layout>} />} />
+        <Route path="/bookings" element={<PrivateRoute element={<Layout><BookingsList /></Layout>} />} />
+        <Route path="/payments" element={<PrivateRoute element={<Layout><PaymentList /></Layout>} />} />
       </Routes>
     </Router>
   );

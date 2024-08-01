@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Heading, Text, Button } from '@chakra-ui/react';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/Navbars/UserNavbar';
 import Footer from '../../components/Footer';
 
 const HomePage = () => {

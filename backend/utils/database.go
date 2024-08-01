@@ -41,6 +41,13 @@ type Payment struct {
     PaymentStatus string
 }
 
+type Session struct {
+    ID         uint      `gorm:"primaryKey"`
+    UserID     uint      `gorm:"index"`
+    Username   string
+    LastActive time.Time
+}
+
 var DB *gorm.DB
 var err error
 
@@ -52,7 +59,7 @@ func InitDatabase() {
     }
 
     // Migrate the schema
-    if err := DB.AutoMigrate(&User{}, &Room{}, &Booking{}, &Payment{}); err != nil {
+    if err := DB.AutoMigrate(&User{}, &Room{}, &Booking{}, &Payment{}, &Session{}); err != nil {
         log.Fatalf("Failed to migrate database schema: %v", err)
     }
 
@@ -131,5 +138,23 @@ func seedDatabase() {
             continue // Skip if payment already exists
         }
         DB.Create(&payment)
+    }
+
+       // Seed Sessions
+       sessions := []Session{
+        {UserID: 1, Username: "yoon_hee", LastActive: time.Now().Add(-time.Hour)},
+        {UserID: 2, Username: "james_smith", LastActive: time.Now().Add(-2 * time.Hour)},
+        {UserID: 3, Username: "maria_garcia", LastActive: time.Now().Add(-3 * time.Hour)},
+        {UserID: 4, Username: "john_doe", LastActive: time.Now().Add(-4 * time.Hour)},
+        {UserID: 5, Username: "alice_jones", LastActive: time.Now().Add(-5 * time.Hour)},
+        {UserID: 6, Username: "bob_brown", LastActive: time.Now().Add(-6 * time.Hour)},
+        {UserID: 7, Username: "carol_white", LastActive: time.Now().Add(-7 * time.Hour)},
+    }
+    for _, session := range sessions {
+        var existingSession Session
+        if err := DB.Where("user_id = ?", session.UserID).First(&existingSession).Error; err == nil {
+            continue // Skip if session already exists
+        }
+        DB.Create(&session)
     }
 }
