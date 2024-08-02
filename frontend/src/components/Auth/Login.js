@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
 import { Box, Button, Container, FormControl, FormLabel, Input, Alert, AlertIcon } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,9 +13,11 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:8080/login', { username, password });
-      localStorage.setItem('token', response.data.token); // Store the token
-      localStorage.setItem('username', response.data.username); // Store the username
-      localStorage.setItem('role', response.data.role); // Store the user role
+      const token = response.data.token;
+      const decoded = jwtDecode(token); // Decode the token
+      localStorage.setItem('token', token); // Store the token
+      localStorage.setItem('username', decoded.username); // Store the username
+      localStorage.setItem('role', decoded.role); // Store the user role
       setError('');
       navigate('/dashboard'); // Redirect to the dashboard after successful login
     } catch (err) {

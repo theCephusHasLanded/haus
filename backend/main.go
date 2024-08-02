@@ -35,6 +35,8 @@ func main() {
 
     // Define routes
     routes.AuthRoutes(router)
+    routes.AdminRoutes(router)
+
 
     authorized := router.Group("/")
     authorized.Use(authMiddleware())

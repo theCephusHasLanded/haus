@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../../utils/axios';
-import { Container, Box, Heading, Text } from '@chakra-ui/react';
+import { Container, Box, Heading, Text, List, ListItem, Avatar, Flex } from '@chakra-ui/react';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -24,11 +24,16 @@ const UserList = () => {
       <Box mt={4}>
         <Heading as="h2" size="lg">Users</Heading>
         {error && <Text color="red.500">{error}</Text>}
-        <ul>
+        <List spacing={3}>
           {users.map(user => (
-            <li key={user.ID}>{user.Username} ({user.Email})</li>
+            <ListItem key={user.ID} bg="gray.50" p={3} borderRadius="md">
+              <Flex alignItems="center">
+                <Avatar name={user.Username} src={`https://i.pravatar.cc/150?u=${user.Username}`} size="sm" />
+                <Text ml={4}>{user.Username} ({user.Email})</Text>
+              </Flex>
+            </ListItem>
           ))}
-        </ul>
+        </List>
       </Box>
     </Container>
   );
