@@ -1,6 +1,6 @@
 # HAUS
 ![Logo](frontend/public/favicon.ico)
-![ERD](frontend/public/erd.png)
+<!-- ![ERD](frontend/public/erd.png) -->
 
 ## Overview
 HAUS is a revolutionary housing solution designed to address the diverse needs of individuals in New York City and beyond. With a focus on providing immediate shelter to those in desperate need, comfortable accommodations for travelers, and luxurious living experiences, HAUS offers a tiered housing system that caters to everyone. Through a unique membership system and the "Pay It Forward" program, HAUS fosters community support and resilience, especially in response to climate change and displacement.
