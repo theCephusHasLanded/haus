@@ -12,9 +12,13 @@ import {
   IconButton,
   Collapse,
   useDisclosure,
-  VStack
+  VStack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
 const UserNavbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -34,12 +38,25 @@ const UserNavbar = () => {
           </Box>
         </Flex>
         <Flex alignItems="center">
-          <Box display={{ base: 'none', md: 'flex' }}>
-            <Link href="/" px={2} color={textColor}>Home</Link>
-            <Link href="/dashboard" px={2} color={textColor}>Dashboard</Link>
-            <Link href="/rooms" px={2} color={textColor}>Rooms</Link>
-            <Link href="/bookings" px={2} color={textColor}>Bookings</Link>
-            <Link href="/payments" px={2} color={textColor}>Payments</Link>
+        <Box display={{ base: 'none', md: 'flex' }}>
+            <Button as={Link} href="/" px={2} color={textColor} bg={bgColor}>
+              Home
+            </Button>
+            <Button as={Link} href="/dashboard" px={2} color={textColor} bg={bgColor}>
+              Dashboard
+            </Button>
+            <Menu>
+              <MenuButton as={Button} rightIcon={<ChevronDownIcon />} px={2} color={textColor}>
+                Manage
+              </MenuButton>
+              <MenuList bg={bgColor}>
+                <MenuItem as={Link} href="/rooms" bg={bgColor} color={textColor}>Rooms</MenuItem>
+                <MenuItem as={Link} href="/bookings" bg={bgColor} color={textColor}>Bookings</MenuItem>
+                <MenuItem as={Link} href="/payments" bg={bgColor} color={textColor}>Payments</MenuItem>
+                <MenuItem as={Link} href="/community/groups" bg={bgColor} color={textColor}>Community Groups</MenuItem>
+                <MenuItem as={Link} href="/coliving/spaces" bg={bgColor} color={textColor}>Coliving Spaces</MenuItem>
+              </MenuList>
+            </Menu>
             <Flex alignItems="center" ml={4}>
               <Avatar name={username} src={`https://i.pravatar.cc/150?u=${username}`} size="sm" />
               <Text ml={2} color={textColor}>{username} ({role})</Text>
@@ -65,6 +82,8 @@ const UserNavbar = () => {
           <Link href="/rooms" px={2} color={textColor}>Rooms</Link>
           <Link href="/bookings" px={2} color={textColor}>Bookings</Link>
           <Link href="/payments" px={2} color={textColor}>Payments</Link>
+          <Link href="/community/groups" px={2} color={textColor}>Community Groups</Link>
+          <Link href="/coliving/spaces" px={2} color={textColor}>Coliving Spaces</Link>
         </VStack>
       </Collapse>
     </Box>

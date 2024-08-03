@@ -2,12 +2,11 @@ package utils
 
 import (
     "time"
-    "fmt"
-    "os"
-    "errors"
-    jwt "github.com/golang-jwt/jwt/v5")
+    jwt "github.com/golang-jwt/jwt/v5"
+)
 
-    var jwtKey = []byte(os.Getenv("JWT_SECRET_KEY"))
+var jwtKey = []byte("your_secret_key")
+
 type Claims struct {
     Username string `json:"username"`
     Role     string `json:"role"`
@@ -15,7 +14,7 @@ type Claims struct {
 }
 
 func GenerateJWT(username, role string) (string, error) {
-    expirationTime := time.Now().Add(24 * time.Hour) // Token valid for 24 hours
+    expirationTime := time.Now().Add(24 * time.Hour)
     claims := &Claims{
         Username: username,
         Role:     role,
@@ -35,12 +34,11 @@ func ValidateJWT(tokenString string) (*Claims, error) {
     })
 
     if err != nil {
-        fmt.Println("Token validation error:", err)
         return nil, err
     }
 
     if !token.Valid {
-        return nil, errors.New("invalid token")
+        return nil, err
     }
 
     return claims, nil

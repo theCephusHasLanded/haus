@@ -6,9 +6,6 @@ import (
 )
 
 func ColivingRoutes(router *gin.Engine) {
-    coliving := router.Group("/coliving")
-    coliving.POST("/spaces", controllers.CreateColivingSpace)
-    coliving.GET("/spaces", controllers.GetColivingSpaces)
-    coliving.POST("/rooms", controllers.CreateRoom)
-    coliving.GET("/rooms", controllers.GetRooms)
+    router.GET("/coliving/spaces", controllers.GetColivingSpaces)
+    router.GET("/coliving/spaces/:id", controllers.GetColivingSpaceByID)
 }

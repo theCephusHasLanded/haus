@@ -3,7 +3,7 @@ import axiosInstance from '../../utils/axios';
 import { Container, Box, Heading, Table, Thead, Tbody, Tr, Th, Td, Button, Text, Spinner, Avatar, Flex } from '@chakra-ui/react';
 
 const AdminDashboard = () => {
-  const [sessions, setSessions] = useState([]);
+  const [sessions, setSessions] = useState([]); // Initialize as an empty array
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -12,9 +12,9 @@ const AdminDashboard = () => {
     const fetchData = async () => {
       try {
         const sessionsResponse = await axiosInstance.get('/admin/sessions');
-        setSessions(sessionsResponse.data);
+        setSessions(sessionsResponse.data || []); // Handle null or undefined data
         const usersResponse = await axiosInstance.get('/admin/users');
-        setUsers(usersResponse.data);
+        setUsers(usersResponse.data || []); // Handle null or undefined data
       } catch (err) {
         setError('Failed to fetch data');
       }
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
   const deleteUser = async (userId) => {
     try {
       await axiosInstance.post(`/admin/users/${userId}/delete`);
-      setUsers(users.map(user => user.ID === userId ? { ...user, deletedAt: new Date() } : user));
+      setUsers(users.filter(user => user.ID !== userId));
     } catch (err) {
       setError('Failed to delete user');
     }

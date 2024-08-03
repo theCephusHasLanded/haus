@@ -1,23 +1,20 @@
 import axios from 'axios';
 
-// Create an Axios instance
-const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8080', // Your backend API base URL
+const instance = axios.create({
+  baseURL: 'http://localhost:8080', // The Un-official Haus backend API URL
 });
 
-// Add a request interceptor to include the Authorization header with the JWT token
-axiosInstance.interceptors.request.use(
-  config => {
-    const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+instance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
     if (token) {
-        console.log('Token:', token); // Log the token
-      config.headers.Authorization = `Bearer ${token}`; // Add the token to the Authorization header
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  error => {
+  (error) => {
     return Promise.reject(error);
   }
 );
 
-export default axiosInstance;
+export default instance;

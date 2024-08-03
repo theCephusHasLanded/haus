@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"time"
-    "strings"
+	"strings"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -37,13 +37,16 @@ func main() {
     // Define routes
     routes.AuthRoutes(router)
     routes.AdminRoutes(router)
+    routes.UserRoutes(router)
+    routes.RoomRoutes(router)
+    routes.ColivingRoutes(router)
+    routes.CommunityRoutes(router)
+    // routes.SessionRoutes(router)
 
 
     authorized := router.Group("/")
     authorized.Use(authMiddleware())
     {
-        authorized.GET("/users", getUsers)
-        authorized.POST("/users", createUser)
         authorized.GET("/rooms", getRooms)
         authorized.POST("/rooms", createRoom)
         authorized.GET("/bookings", getBookings)
@@ -78,7 +81,6 @@ func authMiddleware() gin.HandlerFunc {
         c.Next()
     }
 }
-
 
 // Handler function to get all users
 func getUsers(c *gin.Context) {
