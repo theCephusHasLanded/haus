@@ -9,19 +9,27 @@ import (
 
 // Struct definitions
 type User struct {
-    ID       uint   `gorm:"primaryKey"`
-    Username string `gorm:"unique"`
-    Email    string `gorm:"unique"`
-    Password string
-    Role     string
+    ID        uint      `gorm:"primaryKey"`
+    Username  string    `gorm:"unique"`
+    Email     string    `gorm:"unique"`
+    Password  string
+    Role      string
+    FullName  string
+    Bio       string
+    AvatarURL string
+    CreatedAt time.Time
+    UpdatedAt time.Time
+    DeletedAt *time.Time `gorm:"index"`
 }
 
 type Room struct {
-    ID          uint    `gorm:"primaryKey"`
-    RoomNumber  string  `gorm:"unique"`
-    Description string
-    PricePerWeek float64
-    IsAvailable bool
+    ID              uint      `gorm:"primaryKey"`
+    ColivingSpaceID uint      `gorm:"index"`
+    RoomNumber      string    `gorm:"unique"`
+    Description     string
+    PricePerWeek    float64
+    IsAvailable     bool
+    CreatedAt       time.Time
 }
 
 type Booking struct {
@@ -48,6 +56,37 @@ type Session struct {
     LastActive time.Time
 }
 
+type Message struct {
+    ID         uint      `gorm:"primaryKey"`
+    SenderID   uint      `gorm:"index"`
+    ReceiverID uint      `gorm:"index"`
+    Content    string
+    CreatedAt  time.Time
+}
+
+type Group struct {
+    ID          uint      `gorm:"primaryKey"`
+    Name        string
+    Description string
+    CreatedAt   time.Time
+}
+
+type Event struct {
+    ID        uint      `gorm:"primaryKey"`
+    Name      string
+    Details   string
+    GroupID   uint      `gorm:"index"`
+    CreatedAt time.Time
+}
+
+type ColivingSpace struct {
+    ID          uint      `gorm:"primaryKey"`
+    Name        string
+    Address     string
+    Description string
+    CreatedAt   time.Time
+}
+
 var DB *gorm.DB
 var err error
 
@@ -59,7 +98,7 @@ func InitDatabase() {
     }
 
     // Migrate the schema
-    if err := DB.AutoMigrate(&User{}, &Room{}, &Booking{}, &Payment{}, &Session{}); err != nil {
+    if err := DB.AutoMigrate(&User{}, &Room{}, &Booking{}, &Payment{}, &Session{}, &Message{}, &Group{}, &Event{}, &ColivingSpace{}); err != nil {
         log.Fatalf("Failed to migrate database schema: %v", err)
     }
 
@@ -70,13 +109,13 @@ func InitDatabase() {
 func seedDatabase() {
     // Seed Users
     users := []User{
-        {Username: "yoon_hee", Email: "yoonhee@example.com", Password: "securepassword", Role: "user"},
-        {Username: "james_smith", Email: "james.smith@example.com", Password: "securepassword", Role: "user"},
-        {Username: "maria_garcia", Email: "maria.garcia@example.com", Password: "securepassword", Role: "user"},
-        {Username: "john_doe", Email: "john.doe@example.com", Password: "securepassword", Role: "admin"},
-        {Username: "alice_jones", Email: "alice.jones@example.com", Password: "securepassword", Role: "user"},
-        {Username: "bob_brown", Email: "bob.brown@example.com", Password: "securepassword", Role: "user"},
-        {Username: "carol_white", Email: "carol.white@example.com", Password: "securepassword", Role: "user"},
+        {Username: "yoon_hee", Email: "yoonhee@example.com", Password: "securepassword", Role: "user", FullName: "Yoon Hee", Bio: "Love traveling and meeting new people.", AvatarURL: "https://example.com/avatars/yoon_hee.png"},
+        {Username: "james_smith", Email: "james.smith@example.com", Password: "securepassword", Role: "user", FullName: "James Smith", Bio: "An avid reader and coffee enthusiast.", AvatarURL: "https://example.com/avatars/james_smith.png"},
+        {Username: "maria_garcia", Email: "maria.garcia@example.com", Password: "securepassword", Role: "user", FullName: "Maria Garcia", Bio: "Passionate about technology and innovation.", AvatarURL: "https://example.com/avatars/maria_garcia.png"},
+        {Username: "john_doe", Email: "john.doe@example.com", Password: "securepassword", Role: "admin", FullName: "John Doe", Bio: "Admin of the HAUS platform.", AvatarURL: "https://example.com/avatars/john_doe.png"},
+        {Username: "alice_jones", Email: "alice.jones@example.com", Password: "securepassword", Role: "user", FullName: "Alice Jones", Bio: "Music lover and artist.", AvatarURL: "https://example.com/avatars/alice_jones.png"},
+        {Username: "bob_brown", Email: "bob.brown@example.com", Password: "securepassword", Role: "user", FullName: "Bob Brown", Bio: "Enjoys hiking and outdoor adventures.", AvatarURL: "https://example.com/avatars/bob_brown.png"},
+        {Username: "carol_white", Email: "carol.white@example.com", Password: "securepassword", Role: "user", FullName: "Carol White", Bio: "Foodie and aspiring chef.", AvatarURL: "https://example.com/avatars/carol_white.png"},
     }
     for _, user := range users {
         var existingUser User
@@ -140,8 +179,8 @@ func seedDatabase() {
         DB.Create(&payment)
     }
 
-       // Seed Sessions
-       sessions := []Session{
+    // Seed Sessions
+    sessions := []Session{
         {UserID: 1, Username: "yoon_hee", LastActive: time.Now().Add(-time.Hour)},
         {UserID: 2, Username: "james_smith", LastActive: time.Now().Add(-2 * time.Hour)},
         {UserID: 3, Username: "maria_garcia", LastActive: time.Now().Add(-3 * time.Hour)},
@@ -156,5 +195,59 @@ func seedDatabase() {
             continue // Skip if session already exists
         }
         DB.Create(&session)
+    }
+
+    // Seed Messages
+    messages := []Message{
+        {SenderID: 1, ReceiverID: 2, Content: "Hey James! How's it going?", CreatedAt: time.Now().Add(-48 * time.Hour)},
+        {SenderID: 2, ReceiverID: 1, Content: "Hi Yoon! I'm good, thanks. How about you?", CreatedAt: time.Now().Add(-47 * time.Hour)},
+        {SenderID: 3, ReceiverID: 4, Content: "John, can we discuss the new feature?", CreatedAt: time.Now().Add(-46 * time.Hour)},
+        {SenderID: 4, ReceiverID: 3, Content: "Sure, Maria. Let's set up a meeting.", CreatedAt: time.Now().Add(-45 * time.Hour)},
+    }
+    for _, message := range messages {
+        var existingMessage Message
+        if err := DB.Where("sender_id = ? AND receiver_id = ? AND content = ?", message.SenderID, message.ReceiverID, message.Content).First(&existingMessage).Error; err == nil {
+            continue // Skip if message already exists
+        }
+        DB.Create(&message)
+    }
+
+    // Seed Groups
+    groups := []Group{
+        {Name: "Tech Enthusiasts", Description: "A group for people passionate about technology.", CreatedAt: time.Now().Add(-30 * 24 * time.Hour)},
+        {Name: "Fitness Buffs", Description: "A group for fitness and health enthusiasts.", CreatedAt: time.Now().Add(-20 * 24 * time.Hour)},
+    }
+    for _, group := range groups {
+        var existingGroup Group
+        if err := DB.Where("name = ?", group.Name).First(&existingGroup).Error; err == nil {
+            continue // Skip if group already exists
+        }
+        DB.Create(&group)
+    }
+
+    // Seed Events
+    events := []Event{
+        {Name: "Tech Talk", Details: "Discussion on the latest in tech.", GroupID: 1, CreatedAt: time.Now().Add(-10 * 24 * time.Hour)},
+        {Name: "Morning Run", Details: "Join us for a morning run in the park.", GroupID: 2, CreatedAt: time.Now().Add(-5 * 24 * time.Hour)},
+    }
+    for _, event := range events {
+        var existingEvent Event
+        if err := DB.Where("name = ? AND group_id = ?", event.Name, event.GroupID).First(&existingEvent).Error; err == nil {
+            continue // Skip if event already exists
+        }
+        DB.Create(&event)
+    }
+
+    // Seed Coliving Spaces
+    colivingSpaces := []ColivingSpace{
+        {Name: "Downtown Coliving", Address: "123 Main St, City, Country", Description: "A vibrant coliving space in the heart of the city.", CreatedAt: time.Now().Add(-15 * 24 * time.Hour)},
+        {Name: "Seaside Retreat", Address: "456 Beach Ave, City, Country", Description: "A peaceful coliving space by the sea.", CreatedAt: time.Now().Add(-10 * 24 * time.Hour)},
+    }
+    for _, colivingSpace := range colivingSpaces {
+        var existingColivingSpace ColivingSpace
+        if err := DB.Where("name = ?", colivingSpace.Name).First(&existingColivingSpace).Error; err == nil {
+            continue // Skip if coliving space already exists
+        }
+        DB.Create(&colivingSpace)
     }
 }

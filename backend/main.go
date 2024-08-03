@@ -32,6 +32,7 @@ func main() {
 
     // Initialize Database
     utils.InitDatabase()
+    utils.InitRedis()
 
     // Define routes
     routes.AuthRoutes(router)

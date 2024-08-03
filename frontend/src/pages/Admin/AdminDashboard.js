@@ -36,9 +36,18 @@ const AdminDashboard = () => {
   const deleteUser = async (userId) => {
     try {
       await axiosInstance.post(`/admin/users/${userId}/delete`);
-      setUsers(users.filter(user => user.ID !== userId));
+      setUsers(users.map(user => user.ID === userId ? { ...user, deletedAt: new Date() } : user));
     } catch (err) {
       setError('Failed to delete user');
+    }
+  };
+
+  const restoreUser = async (userId) => {
+    try {
+      await axiosInstance.post(`/admin/users/${userId}/restore`);
+      setUsers(users.map(user => user.ID === userId ? { ...user, deletedAt: null } : user));
+    } catch (err) {
+      setError('Failed to restore user');
     }
   };
 
@@ -101,6 +110,7 @@ const AdminDashboard = () => {
               <Th>Username</Th>
               <Th>Email</Th>
               <Th>Role</Th>
+              <Th>Status</Th>
               <Th>Actions</Th>
             </Tr>
           </Thead>
@@ -116,10 +126,17 @@ const AdminDashboard = () => {
                 </Td>
                 <Td>{user.Email}</Td>
                 <Td>{user.Role}</Td>
+                <Td>{user.DeletedAt ? 'Deleted' : 'Active'}</Td>
                 <Td>
-                  <Button colorScheme="red" onClick={() => deleteUser(user.ID)}>
-                    Delete
-                  </Button>
+                  {user.DeletedAt ? (
+                    <Button colorScheme="green" onClick={() => restoreUser(user.ID)}>
+                      Restore
+                    </Button>
+                  ) : (
+                    <Button colorScheme="red" onClick={() => deleteUser(user.ID)}>
+                      Delete
+                    </Button>
+                  )}
                 </Td>
               </Tr>
             ))}
