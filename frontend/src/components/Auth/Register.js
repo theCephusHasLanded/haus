@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Box, Button, Container, FormControl, FormLabel, Input, Alert, AlertIcon } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../utils/axios';
+import { Box, Container, Heading, FormControl, FormLabel, Input, Button, Alert, AlertIcon } from '@chakra-ui/react';
 
-const Register = () => {
+const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [code, setCode] = useState(''); // New state for the code
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleRegister = async () => {
     try {
-      await axios.post('http://localhost:8080/register', { username, email, password });
+      const response = await axiosInstance.post('/register', { username, email, password, code });
       setError('');
-      navigate('/login'); // Redirect to login after successful registration
+      // Redirect to login or other page
     } catch (err) {
-      if (err.response && err.response.data && err.response.data.error.includes('duplicate key value')) {
-        setError('Username or email already exists');
-      } else {
-        setError('Registration failed');
-      }
+      setError('Registration failed');
     }
   };
 
   return (
     <Container>
       <Box maxW="md" mx="auto" mt={8}>
-        <h2>Register</h2>
+        <Heading as="h2" mb={6}>Register</Heading>
         {error && (
           <Alert status="error" mb={4}>
             <AlertIcon />
@@ -43,7 +38,6 @@ const Register = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
         </FormControl>
-
         <FormControl mb={4}>
           <FormLabel>Email</FormLabel>
           <Input
@@ -53,7 +47,6 @@ const Register = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </FormControl>
-
         <FormControl mb={4}>
           <FormLabel>Password</FormLabel>
           <Input
@@ -63,13 +56,19 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </FormControl>
-
-        <Button colorScheme="blue" onClick={handleRegister} width="full">
-          Register
-        </Button>
+        <FormControl mb={4}>
+          <FormLabel>Admin Code</FormLabel> {/* New field for admin code */}
+          <Input
+            type="text"
+            placeholder="Enter admin code"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+        </FormControl>
+        <Button colorScheme="blue" onClick={handleRegister} width="full">Register</Button>
       </Box>
     </Container>
   );
 };
 
-export default Register;
+export default RegisterPage;

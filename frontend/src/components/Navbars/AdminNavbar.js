@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Box,
   Flex,
-  Link,
+  Link as ChakraLink,
   Button,
   useColorMode,
   useColorModeValue,
@@ -19,6 +19,7 @@ import {
   MenuItem
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 
 const AdminNavbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -38,32 +39,35 @@ const AdminNavbar = () => {
           </Box>
         </Flex>
         <Flex alignItems="center">
-        <Box display={{ base: 'none', md: 'flex' }}>
-            <Button as={Link} href="/" px={2} color={textColor} bg={bgColor}>
+          <Box display={{ base: 'none', md: 'flex' }}>
+            <Button as={Link} to="/" px={2} color={textColor} bg={bgColor}>
               Home
             </Button>
-            <Button as={Link} href="/dashboard" px={2} color={textColor} bg={bgColor}>
+            <Button as={Link} to="/dashboard" px={2} color={textColor} bg={bgColor}>
               Dashboard
             </Button>
+            <Button as={Link} to="/user-bios" px={2} color={textColor} bg={bgColor}>
+              User Bios
+            </Button>
             <Menu>
-              <MenuButton as={Button} rightIcon={<ChevronDownIcon />} px={2} color={textColor}>
+              <MenuButton as={Button} rightIcon={<ChevronDownIcon />} px={2} color={textColor} bg={bgColor}>
                 Admin
               </MenuButton>
               <MenuList bg={bgColor}>
-                <MenuItem as={Link} href="/admin/sessions" bg={bgColor} color={textColor}>User Sessions</MenuItem>
-                <MenuItem as={Link} href="/admin/users" bg={bgColor} color={textColor}>Manage Users</MenuItem>
+                <MenuItem as={Link} to="/admin/sessions" bg={bgColor} color={textColor}>User Sessions</MenuItem>
+                <MenuItem as={Link} to="/admin/users" bg={bgColor} color={textColor}>Manage Users</MenuItem>
               </MenuList>
             </Menu>
             <Menu>
-              <MenuButton as={Button} rightIcon={<ChevronDownIcon />} px={2} color={textColor}>
+              <MenuButton as={Button} rightIcon={<ChevronDownIcon />} px={2} color={textColor} bg={bgColor}>
                 Manage
               </MenuButton>
               <MenuList bg={bgColor}>
-                <MenuItem as={Link} href="/rooms" bg={bgColor} color={textColor}>Rooms</MenuItem>
-                <MenuItem as={Link} href="/bookings" bg={bgColor} color={textColor}>Bookings</MenuItem>
-                <MenuItem as={Link} href="/payments" bg={bgColor} color={textColor}>Payments</MenuItem>
-                <MenuItem as={Link} href="/community/groups" bg={bgColor} color={textColor}>Community Groups</MenuItem>
-                <MenuItem as={Link} href="/coliving/spaces" bg={bgColor} color={textColor}>Coliving Spaces</MenuItem>
+                <MenuItem as={Link} to="/rooms" bg={bgColor} color={textColor}>Rooms</MenuItem>
+                <MenuItem as={Link} to="/bookings" bg={bgColor} color={textColor}>Bookings</MenuItem>
+                <MenuItem as={Link} to="/payments" bg={bgColor} color={textColor}>Payments</MenuItem>
+                <MenuItem as={Link} to="/community/groups" bg={bgColor} color={textColor}>Community Groups</MenuItem>
+                <MenuItem as={Link} to="/coliving/spaces" bg={bgColor} color={textColor}>Coliving Spaces</MenuItem>
               </MenuList>
             </Menu>
             <Flex alignItems="center" ml={4}>
@@ -86,15 +90,14 @@ const AdminNavbar = () => {
       </Flex>
       <Collapse in={isOpen} animateOpacity>
         <VStack bg={bgColor} p={4} display={{ md: 'none' }}>
-          <Link href="/" px={2} color={textColor}>Home</Link>
-          <Link href="/dashboard" px={2} color={textColor}>Dashboard</Link>
-          <Link href="/admin/sessions" px={2} color={textColor}>User Sessions</Link>
-          <Link href="/admin/users" px={2} color={textColor}>Manage Users</Link>
-          <Link href="/rooms" px={2} color={textColor}>Rooms</Link>
-          <Link href="/bookings" px={2} color={textColor}>Bookings</Link>
-          <Link href="/payments" px={2} color={textColor}>Payments</Link>
-          <Link href="/community/groups" px={2} color={textColor}>Community Groups</Link>
-          <Link href="/coliving/spaces" px={2} color={textColor}>Coliving Spaces</Link>
+          <ChakraLink as={Link} to="/" px={2} color={textColor}>Home</ChakraLink>
+          <ChakraLink as={Link} to="/dashboard" px={2} color={textColor}>Dashboard</ChakraLink>
+          <ChakraLink as={Link} to="/user-bios" px={2} color={textColor}>User Bios</ChakraLink>
+          <ChakraLink as={Link} to="/rooms" px={2} color={textColor}>Rooms</ChakraLink>
+          <ChakraLink as={Link} to="/bookings" px={2} color={textColor}>Bookings</ChakraLink>
+          <ChakraLink as={Link} to="/payments" px={2} color={textColor}>Payments</ChakraLink>
+          <ChakraLink as={Link} to="/community/groups" px={2} color={textColor}>Community Groups</ChakraLink>
+          <ChakraLink as={Link} to="/coliving/spaces" px={2} color={textColor}>Coliving Spaces</ChakraLink>
         </VStack>
       </Collapse>
     </Box>

@@ -13,9 +13,9 @@ const Footer = () => {
           alt="Pursuit Logo"
           width="120px"
           height="auto"
-          mb={4}
+          mb={1}
         />
-        <Text mt={4}>&copy; {new Date().getFullYear()} HAUS. <strong>LKHN Technologies</strong> All rights reserved.</Text>
+        <Text mt={1}>&copy; {new Date().getFullYear()} HAUS. <strong>LKHN Technologies</strong> All rights reserved.</Text>
       </Flex>
     </Box>
   );
