@@ -1,5 +1,24 @@
 import React, { useState } from 'react';
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button, FormControl, FormLabel, Input, Textarea, HStack, useToast } from '@chakra-ui/react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  HStack,
+  useToast,
+  Switch,
+  Box,
+  Text,
+  VStack
+} from '@chakra-ui/react';
 import { FaStar } from 'react-icons/fa';
 import { sendFeedback } from '../utils/emailService';
 
@@ -14,23 +33,24 @@ const FeedbackForm = ({ isOpen, onClose }) => {
     try {
       await sendFeedback({ rating, feedback, email, joinWaitlist });
       toast({
-        title: "Feedback submitted.",
-        description: "Thank you for your feedback!",
+        title: "Feedback submitted successfully!",
+        description: "Thank you for your valuable input.",
         status: "success",
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
       });
       onClose();
     } catch (error) {
       toast({
-        title: "An error occurred.",
-        description: "Unable to submit feedback. Please try again.",
+        title: "Submission failed",
+        description: "Please try again later.",
         status: "error",
-        duration: 5000,
+        duration: 3000,
         isClosable: true,
       });
     }
   };
+
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -39,48 +59,61 @@ const FeedbackForm = ({ isOpen, onClose }) => {
         <ModalHeader>Rate HAUS App</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <FormControl>
-            <FormLabel>Rating</FormLabel>
-            <HStack spacing={1}>
-              {[...Array(5)].map((star, i) => {
-                const ratingValue = i + 1;
-                return (
-                  <FaStar
-                    key={i}
-                    size={24}
-                    color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
-                    onClick={() => setRating(ratingValue)}
-                    style={{ cursor: 'pointer' }}
+          <VStack spacing={4} align="stretch">
+            <FormControl>
+              <FormLabel>Your Feedback</FormLabel>
+              <Textarea
+                placeholder="Share your thoughts about HAUS"
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+              />
+            </FormControl>
+
+            <Box p={4} bg="blue.50" borderRadius="md">
+              <FormControl display="flex" alignItems="center">
+                <FormLabel htmlFor="join-waitlist" mb="0">
+                  Join Beta Waitlist?
+                </FormLabel>
+                <Switch
+                  id="join-waitlist"
+                  isChecked={joinWaitlist}
+                  onChange={(e) => setJoinWaitlist(e.target.checked)}
+                />
+              </FormControl>
+              {joinWaitlist && (
+                <FormControl mt={4}>
+                  <FormLabel>Email</FormLabel>
+                  <Input
+                    type="email"
+                    placeholder="Your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
-                );
-              })}
-            </HStack>
-          </FormControl>
-          <FormControl mt={4}>
-            <FormLabel>Feedback</FormLabel>
-            <Textarea
-              placeholder="Your feedback"
-              value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
-            />
-          </FormControl>
-          <FormControl mt={4}>
-            <FormLabel>Email</FormLabel>
-            <Input
-              type="email"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </FormControl>
-          <FormControl mt={4}>
-            <FormLabel>Join Beta Waitlist?</FormLabel>
-            <Input
-              type="checkbox"
-              checked={joinWaitlist}
-              onChange={(e) => setJoinWaitlist(e.target.checked)}
-            />
-          </FormControl>
+                </FormControl>
+              )}
+              <Text fontSize="sm" mt={2} color="blue.600">
+                Join our exclusive beta program and be the first to experience new features!
+              </Text>
+            </Box>
+
+            <FormControl>
+              <FormLabel>Rate Your Experience</FormLabel>
+              <HStack spacing={2} justify="center">
+                {[...Array(5)].map((star, i) => {
+                  const ratingValue = i + 1;
+                  return (
+                    <FaStar
+                      key={i}
+                      size={32}
+                      color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
+                      onClick={() => setRating(ratingValue)}
+                      style={{ cursor: 'pointer' }}
+                    />
+                  );
+                })}
+              </HStack>
+            </FormControl>
+          </VStack>
         </ModalBody>
         <ModalFooter>
           <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
