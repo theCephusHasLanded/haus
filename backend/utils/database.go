@@ -7,19 +7,20 @@ import (
     "gorm.io/gorm"
 )
 
-// Struct definitions
 type User struct {
-    ID        uint      `gorm:"primaryKey"`
-    Username  string    `gorm:"unique"`
-    Email     string    `gorm:"unique"`
-    Password  string
-    Role      string
-    FullName  string
-    Bio       string
-    AvatarURL string
-    CreatedAt time.Time
-    UpdatedAt time.Time
-    DeletedAt *time.Time `gorm:"index"`
+    ID                   uint      `gorm:"primaryKey"`
+    Username             string    `gorm:"unique"`
+    Email                string    `gorm:"unique"`
+    Password             string
+    Role                 string
+    FullName             string
+    Bio                  string
+    AvatarURL            string
+    LivingExperiences    string
+    CommunityInteractions string
+    CreatedAt            time.Time
+    UpdatedAt            time.Time
+    DeletedAt            *time.Time `gorm:"index"`
 }
 
 type Room struct {

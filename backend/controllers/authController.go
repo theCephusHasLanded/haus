@@ -6,17 +6,38 @@ import (
     "github.com/thecephushaslanded/haus/backend/utils"
 )
 
+type RegisterRequest struct {
+    Username string `json:"username" binding:"required"`
+    Email    string `json:"email" binding:"required,email"`
+    Password string `json:"password" binding:"required"`
+    Code     string `json:"code"`
+}
+
 func RegisterUser(c *gin.Context) {
-    var user utils.User
-    if err := c.ShouldBindJSON(&user); err != nil {
+    var request RegisterRequest
+    if err := c.ShouldBindJSON(&request); err != nil {
         c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
         return
     }
-    if result := utils.DB.Create(&user); result.Error != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+
+    role := "user"
+    if request.Code == "7777" {
+        role = "admin"
+    }
+
+    user := utils.User{
+        Username: request.Username,
+        Email:    request.Email,
+        Password: request.Password,
+        Role:     role,
+    }
+
+    if err := utils.DB.Create(&user).Error; err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
         return
     }
-    c.JSON(http.StatusCreated, user)
+
+    c.JSON(http.StatusCreated, gin.H{"message": "User registered successfully", "user": user})
 }
 
 func LoginUser(c *gin.Context) {

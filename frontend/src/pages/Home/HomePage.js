@@ -28,7 +28,7 @@ const HomePage = () => {
               isImageFirst={true}
             />
             <AnimatedSection
-              imageSrc="join.png"
+              imageSrc="community.png"
               altText="Join Our Community"
               heading="Join Our Community"
               text="Being a part of the HAUS community means more than just finding a place to stay. Connect with like-minded individuals, share experiences, and create lasting memories. Our community is built on trust and mutual respect, ensuring a welcoming environment for everyone."

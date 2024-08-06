@@ -10,10 +10,9 @@ import PaymentList from './components/Payments/PaymentList';
 import BookingsList from './components/Bookings/BookingList';
 import Groups from './components/Community/Groups';
 import ColivingSpaces from './components/Coliving/Spaces';
-import UserBiosPage from './pages/UserBios/UserBiosPage';
 import ManageUsers from './pages/Admin/ManageUsers';
 import ManageSessions from './pages/Admin/ManageSessions';
-import UserProfile from './components/UserProfile';
+import ProfilePage from './pages/ProfilePage';
 import Layout from './components/Layout';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -31,10 +30,10 @@ const App = () => {
         <Route path="/payments" element={<PrivateRoute element={<Layout><PaymentList /></Layout>} />} />
         <Route path="/community/groups" element={<PrivateRoute element={<Layout><Groups /></Layout>} />} />
         <Route path="/coliving/spaces" element={<PrivateRoute element={<Layout><ColivingSpaces /></Layout>} />} />
-        <Route path="/user-bios" element={<PrivateRoute element={<Layout><UserBiosPage /></Layout>} />} />
         <Route path="/admin/sessions" element={<PrivateRoute element={<Layout><ManageSessions /></Layout>} />} />
         <Route path="/admin/users" element={<PrivateRoute element={<Layout><ManageUsers /></Layout>} />} />
-        <Route path="/profile/:id" element={<PrivateRoute element={<Layout><UserProfile /></Layout>} />} />
+        <Route path="/profile" element={<PrivateRoute element={<Layout><ProfilePage /></Layout>} />} />
+        <Route path="/profile/:id" element={<PrivateRoute element={<Layout><ProfilePage /></Layout>} />} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axiosInstance from '../../utils/axios';
 import { Container, Box, Heading, Text, List, ListItem, Avatar, Flex } from '@chakra-ui/react';
 
@@ -29,7 +30,9 @@ const UserList = () => {
             <ListItem key={user.ID} bg="gray.50" p={3} borderRadius="md">
               <Flex alignItems="center">
                 <Avatar name={user.Username} src={`https://i.pravatar.cc/150?u=${user.Username}`} size="sm" />
-                <Text ml={4}>{user.Username} ({user.Email})</Text>
+                <Text ml={4}>
+                  <Link to={`/profile/${user.ID}`}>{user.Username} ({user.Email})</Link>
+                </Text>
               </Flex>
             </ListItem>
           ))}

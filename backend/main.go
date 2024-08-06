@@ -41,6 +41,7 @@ func main() {
     routes.RoomRoutes(router)
     routes.ColivingRoutes(router)
     routes.CommunityRoutes(router)
+
     // routes.SessionRoutes(router)
 
 
