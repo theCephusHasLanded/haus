@@ -1,0 +1,374 @@
+/* TT Drugs Font Family - Complete Implementation */
+
+/* 
+  IMPORTANT: This file requires actual TT Drugs font files to be placed in /public/fonts/
+  Purchase fonts from: https://typetype.org/fonts/tt-drugs/
+  
+  Required files:
+  - TTDrugs-Thin.woff2
+  - TTDrugs-ExtraLight.woff2
+  - TTDrugs-Light.woff2
+  - TTDrugs-Regular.woff2
+  - TTDrugs-Medium.woff2
+  - TTDrugs-DemiBold.woff2
+  - TTDrugs-Bold.woff2
+  - TTDrugs-ExtraBold.woff2
+  - TTDrugs-Black.woff2
+*/
+
+/* TT Drugs Thin - Weight 100 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs ExtraLight - Weight 200 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs Light - Weight 300 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs Regular - Weight 400 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs Medium - Weight 500 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs DemiBold - Weight 600 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-DemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs Bold - Weight 700 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs ExtraBold - Weight 800 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs Black - Weight 900 */
+@font-face {
+  font-family: 'TT Drugs';
+  src: url('/fonts/TTDrugs-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* TT Drugs Variable Font (if available) */
+@font-face {
+  font-family: 'TT Drugs Variable';
+  src: url('/fonts/TTDrugs-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+/* CSS Custom Properties for TT Drugs Weights */
+:root {
+  /* Font Family */
+  --font-tt-drugs: 'TT Drugs', 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-tt-drugs-variable: 'TT Drugs Variable', var(--font-tt-drugs);
+  
+  /* Font Weights - Exact TT Drugs mapping */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-demibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  
+  /* Typography Scale with TT Drugs characteristics */
+  --font-size-display: 4rem;        /* 64px */
+  --font-size-h1: 3rem;             /* 48px */
+  --font-size-h2: 2.25rem;          /* 36px */
+  --font-size-h3: 1.75rem;          /* 28px */
+  --font-size-h4: 1.5rem;           /* 24px */
+  --font-size-h5: 1.25rem;          /* 20px */
+  --font-size-body-large: 1.125rem; /* 18px */
+  --font-size-body: 1rem;           /* 16px */
+  --font-size-body-small: 0.875rem; /* 14px */
+  --font-size-caption: 0.75rem;     /* 12px */
+  --font-size-technical: 0.875rem;  /* 14px */
+  
+  /* Line Heights optimized for TT Drugs */
+  --line-height-display: 1.1;
+  --line-height-heading: 1.2;
+  --line-height-subheading: 1.3;
+  --line-height-body: 1.4;
+  --line-height-technical: 1.5;
+  
+  /* Letter Spacing for high-contrast sans-serif */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.01em;
+  --letter-spacing-wider: 0.02em;
+  --letter-spacing-widest: 0.05em;
+}
+
+/* TT Drugs Typography Classes */
+.tt-drugs-display {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-thin);
+  font-size: var(--font-size-display);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-tight);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+.tt-drugs-h1 {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-extralight);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-tight);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+.tt-drugs-h2 {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-normal);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+.tt-drugs-h3 {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-subheading);
+  letter-spacing: var(--letter-spacing-normal);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+.tt-drugs-h4 {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-subheading);
+  letter-spacing: var(--letter-spacing-wide);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+.tt-drugs-h5 {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-demibold);
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-subheading);
+  letter-spacing: var(--letter-spacing-wide);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+.tt-drugs-body-large {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body-large);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-normal);
+  font-feature-settings: 'kern' 1;
+}
+
+.tt-drugs-body {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-normal);
+  font-feature-settings: 'kern' 1;
+}
+
+.tt-drugs-body-small {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-body-small);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-wide);
+  font-feature-settings: 'kern' 1;
+}
+
+.tt-drugs-caption {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-extralight);
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-technical);
+  letter-spacing: var(--letter-spacing-wider);
+  font-feature-settings: 'kern' 1;
+}
+
+.tt-drugs-technical {
+  font-family: var(--font-tt-drugs);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-technical);
+  line-height: var(--line-height-technical);
+  letter-spacing: var(--letter-spacing-wider);
+  font-feature-settings: 'kern' 1, 'tnum' 1; /* Tabular numbers for data */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Weight-specific utility classes */
+.tt-drugs-thin { font-weight: var(--font-weight-thin); }
+.tt-drugs-extralight { font-weight: var(--font-weight-extralight); }
+.tt-drugs-light { font-weight: var(--font-weight-light); }
+.tt-drugs-regular { font-weight: var(--font-weight-regular); }
+.tt-drugs-medium { font-weight: var(--font-weight-medium); }
+.tt-drugs-demibold { font-weight: var(--font-weight-demibold); }
+.tt-drugs-bold { font-weight: var(--font-weight-bold); }
+.tt-drugs-extrabold { font-weight: var(--font-weight-extrabold); }
+.tt-drugs-black { font-weight: var(--font-weight-black); }
+
+/* OpenType Features for TT Drugs */
+.tt-drugs-features-all {
+  font-feature-settings: 
+    'kern' 1,      /* Kerning */
+    'liga' 1,      /* Ligatures */
+    'tnum' 1,      /* Tabular numbers */
+    'case' 1,      /* Case-sensitive forms */
+    'frac' 1,      /* Fractions */
+    'sups' 1,      /* Superscript */
+    'subs' 1;      /* Subscript */
+}
+
+.tt-drugs-tabular {
+  font-feature-settings: 'tnum' 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.tt-drugs-oldstyle {
+  font-feature-settings: 'onum' 1;
+  font-variant-numeric: oldstyle-nums;
+}
+
+.tt-drugs-fractions {
+  font-feature-settings: 'frac' 1;
+  font-variant-numeric: diagonal-fractions;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  :root {
+    --font-size-display: 3rem;        /* 48px */
+    --font-size-h1: 2.25rem;          /* 36px */
+    --font-size-h2: 1.875rem;         /* 30px */
+    --font-size-h3: 1.5rem;           /* 24px */
+    --font-size-h4: 1.25rem;          /* 20px */
+    --font-size-h5: 1.125rem;         /* 18px */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-display: 2.5rem;      /* 40px */
+    --font-size-h1: 2rem;             /* 32px */
+    --font-size-h2: 1.75rem;          /* 28px */
+    --font-size-h3: 1.375rem;         /* 22px */
+    --font-size-h4: 1.125rem;         /* 18px */
+    --font-size-h5: 1rem;             /* 16px */
+  }
+}
+
+/* Font Loading Performance */
+@supports (font-display: swap) {
+  @font-face {
+    font-family: 'TT Drugs Preload';
+    src: url('/fonts/TTDrugs-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block; /* Block for critical font */
+  }
+}
+
+/* High DPI optimizations */
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .tt-drugs-display,
+  .tt-drugs-h1,
+  .tt-drugs-h2,
+  .tt-drugs-h3 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Print styles */
+@media print {
+  .tt-drugs-display,
+  .tt-drugs-h1,
+  .tt-drugs-h2,
+  .tt-drugs-h3,
+  .tt-drugs-h4,
+  .tt-drugs-h5,
+  .tt-drugs-body,
+  .tt-drugs-body-large,
+  .tt-drugs-body-small,
+  .tt-drugs-caption,
+  .tt-drugs-technical {
+    font-family: 'TT Drugs', Georgia, serif;
+    color: #000000;
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  .tt-drugs-display,
+  .tt-drugs-h1,
+  .tt-drugs-h2,
+  .tt-drugs-h3 {
+    letter-spacing: 0.005em; /* Slightly wider spacing for dark backgrounds */
+  }
+}
